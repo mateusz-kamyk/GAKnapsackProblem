@@ -91,6 +91,8 @@ def tournament_selection(population, fitnesses, num_selected, tournament_size):
 def knapsack_genetic_algorithm(items, capacity, pop_size, mutation_prob, generations, crossover_prob, use_fitness, use_mutation, use_crossover, use_selection):
 
     population = generate_population(pop_size, items)
+    global_best_value = 0
+    global_best_chromosome = None
 
     print('Value')
 
@@ -99,6 +101,9 @@ def knapsack_genetic_algorithm(items, capacity, pop_size, mutation_prob, generat
             fitnesses = [fitness(ch, items, capacity) for ch in population]
             best_index = fitnesses.index(max(fitnesses))
             best_value = fitnesses[best_index]
+            if best_value > global_best_value:
+                global_best_value = best_value
+                global_best_chromosome = population[best_index][:]
             print(f"{best_value}")
 
         selected = population
@@ -128,12 +133,7 @@ def knapsack_genetic_algorithm(items, capacity, pop_size, mutation_prob, generat
 
         population = new_population
 
-    if use_fitness:
-        fitnesses = [fitness(ch, items, capacity) for ch in population]
-        best_index = fitnesses.index(max(fitnesses))
-        return population[best_index], fitnesses[best_index]
-    else:
-        return population[0], None
+    return global_best_chromosome, global_best_value
 
 items, size, capacity = load_items(data['file'])
 

@@ -1,5 +1,5 @@
 data:
-  file: "data/large_scale/knapPI_1_200_1000_1"
+  file: "data/low-dimensional/f1_l-d_kp_10_269"
 functions:
   fitness_function: True
   mutation_function: True
@@ -8,7 +8,7 @@ functions:
   #selection_function possible options: tournament, rank, roulette
   selection_function: tournament
 configuration:
-  pop_size: 500
+  pop_size: 100
   mutation_prob: 0.1
   generations: 50
   crossover_prob: 1.0
