@@ -2,7 +2,7 @@
 This project implements a configurable genetic algorithm (GA) to solve the 0/1 knapsack optimization problem.
 The implementation includes multiple selection, crossover, and mutation strategies, and supports experiments on low-dimensional and large-scale datasets.
 
-##Requirements
+## Requirements
 - Python 3.8+
 - PyYAML
 - Standard Python libraries (random, etc.)
